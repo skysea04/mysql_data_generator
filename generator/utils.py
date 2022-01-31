@@ -2,10 +2,10 @@ from typing import Tuple
 import mysql.connector
 
 db = mysql.connector.connect(
-    host='localhost',
+    host='db',
     user='root',
     # password='password',
-    port='6606',
+    port='3306',
     database='test',
 )
 

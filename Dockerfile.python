@@ -1,0 +1,13 @@
+FROM python:3.9.10-slim-buster
+
+ARG REQUIREMENTS
+
+ADD requirements/${REQUIREMENTS} /tmp/
+
+RUN python3 -m ensurepip && \
+    pip3 install --upgrade pip setuptools wheel && \
+    pip3 install -r /tmp/${REQUIREMENTS} && \
+    rm -r /tmp/${REQUIREMENTS} /root/.cache
+
+WORKDIR /var/mysql_data_generator
+ADD generator /var/mysql_data_generator/.

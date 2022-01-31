@@ -12,7 +12,9 @@ def main():
 
 def turncate(table):
     try:
+        cursor.execute('SET FOREIGN_KEY_CHECKS = 0')
         cursor.execute(f'TRUNCATE TABLE {table}')
+        cursor.execute('SET FOREIGN_KEY_CHECKS = 1')
         print(f'Truncate Table `{table}` Successfully')
     except mysql.connector.Error as err:
         print(f'ErrMsg: {err.msg}')
