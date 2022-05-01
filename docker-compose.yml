@@ -5,12 +5,14 @@ services:
     image: mysql:8.0.28
     ports:
       - "6606:3306"
+    platform: linux/amd64
     environment: 
     - MYSQL_ALLOW_EMPTY_PASSWORD=yes
     - MYSQL_DATABASE=test
     # - MYSQL_ROOT_PASSWORD=root
 
   app:
+    platform: linux/amd64
     build:
       context: .
       dockerfile: Dockerfile.python
